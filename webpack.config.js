@@ -46,6 +46,7 @@ module.exports = {
       },
       {
         test: /\.js$/,
+        exclude: /node_modules/, // 제외할 경로
         // js 파일을 읽어 babel을 적용하기 위해 설정
         use: [
           'babel-loader'
