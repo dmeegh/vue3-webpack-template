@@ -6,6 +6,10 @@ const {VueLoaderPlugin} = require('vue-loader')
 
 // export
 module.exports = {
+  resolve: {
+    // 확장자를 생략해도 import 잘되게 수정
+    extensions: ['.js', '.vue']
+  },
   // 파일을 읽어들이기 시작하는 진입점 설정 - webpack은 javascript 파일을 지정
   entry: './src/main.js',
 
