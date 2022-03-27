@@ -2,11 +2,12 @@
 const path = require('path');
 const HtmlPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
+const {VueLoaderPlugin} = require('vue-loader')
 
 // export
 module.exports = {
   // 파일을 읽어들이기 시작하는 진입점 설정 - webpack은 javascript 파일을 지정
-  entry: './js/main.js',
+  entry: './src/main.js',
 
   // 결과물(번들)을 반환하는 설정
   output: {
@@ -19,8 +20,14 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.vue$/,
+        use: 'vue-loader'
+      },
+      {
         test: /\.s?css$/,
         use: [
+          //vue 파일 내의 style을 해석
+          'vue-style-loader',
           // 해석된 css를 적용
           'style-loader',
           // 먼저 적용됨: javascript에서 css를 해석
@@ -48,7 +55,8 @@ module.exports = {
       patterns: [
         {from: 'static'}
       ]
-    })
+    }),
+    new VueLoaderPlugin()
   ],
 
   // devServer: {
