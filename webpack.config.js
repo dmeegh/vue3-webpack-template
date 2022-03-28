@@ -34,8 +34,6 @@ module.exports = {
       {
         test: /\.s?css$/,
         use: [
-          //vue 파일 내의 style을 해석
-          'vue-style-loader',
           // 해석된 css를 적용
           'style-loader',
           // 먼저 적용됨: javascript에서 css를 해석
