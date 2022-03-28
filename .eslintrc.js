@@ -20,5 +20,9 @@ module.exports = {
   },
   rules: {
     // 기본 규칙을 변경하기 위해 사용
+    "vue/html-closing-bracket-newline": ["error", {
+      "singleline": "never",
+      "multiline": "never"
+    }]
   }
 };
